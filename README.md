@@ -1,4 +1,3 @@
 # Gymmer
 Gym planner
 
-qwjdbheupjgfrhfuígteiérugtgštuíščhzuíthščutuíščzuíehzut
