@@ -1,2 +1,2 @@
-# gymmer
+# Gymmer
 Gym planner
