@@ -1,3 +1,3 @@
-# Gymmer
+# Gymer
 Gym planner
 
