@@ -1,0 +1,205 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gymer - Planner</title>
+    <link rel="stylesheet" href="css/plan.css">
+</head>
+
+<body>
+    <div class="header"></div>
+    <div class="site">
+
+        <button class="back"><img class="backImg" src="/images/back_logo.svg"></button>
+
+        <div class="userSettings">
+            <p class="userName" id="userName">Name</p>
+            <button class="userProfile" id="userProfile"><img class="userProfileImg" src="/images/profile_logo.svg"></button>
+        </div>
+
+        <div class="menu">
+
+            <h1>Workout Planner</h1>
+
+            <div id="information" class="information" hidden>
+                <div class="dayWrap">
+
+                    <img class="dayLogo" src="/images/day_logo.svg" alt="logo">
+                    <p class="day"></p>
+
+                </div>
+                <div class="informationBox">
+                    <a class="nameWorkoutWrap"><img class="nameWorkoutLogo" src="/images/navigation_logo.svg"
+                            alt="logo">
+                        <p class="nameWorkout"></p>
+                    </a>
+                    <p class="timeWorkout"></p>
+                    <p class="placeWorkout"></p>
+                    <a class="doneWorkoutWrap" onclick="toggleDoneWorkout()"><img id="doneWorkoutLogo"
+                            class="doneWorkoutLogo" src="/images/undone_logo.svg" alt="logo">
+                        <p class="doneWorkout">Undone</p>
+                    </a>
+
+                    <p class="countWorkout"></p>
+                </div>
+            </div>
+
+            <div class="actions">
+                <p class="menuName"><b>Quick Actions</b></p>
+
+                <div class="actionsBox">
+
+                    <button class="completed" onclick="showModal2()">
+                        <img class="completedLogo" src="/images/completed_logo.svg" alt="logo">
+                        <p class="actionText">Completed</p>
+                    </button>
+                    <button class="newWorkout" onclick="showModal()">
+                        <img class="newWorkoutLogo" src="/images/newWorkout_logo.svg" alt="logo">
+                        <p class="actionText">New Workout</p>
+                    </button>
+                    <button class="addExercise" onclick="showModal3()">
+                        <img class="addExerciseLogo" src="/images/addExercise_logo.svg" alt="logo">
+                        <p class="actionText">Add Training</p>
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="navigation">
+                <p class="menuName"><b>Navigation</b></p>
+
+                <div class="navigationBox">
+
+                    <button class="workouts">
+                        <img class="navigationLogo" src="/images/navigation_logo.svg" alt="logo">
+                        <p class="navigationText"><b>Workouts</b></p>
+                    </button>
+                    <button class="exercises">
+                        <img class="navigationLogo" src="/images/navigation_logo.svg" alt="logo">
+                        <p class="navigationText"><b>Exercises</b></p>
+                    </button>
+
+                </div>
+            </div>
+        </div>
+        <div class="calendar">
+            <div class="calendarNameWrap">
+
+                <img class="calendarNameLogo" src="/images/week_logo.svg" alt="logo">
+                <p class="calendarName">Week Workout</p>
+
+            </div>
+            <div class="calendarBlocksWrap">
+
+                <p id="monthElement" class="month"></p>
+                <div class="calendarBlocks">
+
+                    <div class="mondayWrap">
+                        <p class="mondayText">Mon</p>
+                        <input id="mondayCalendar" class="mondayCalnedar" type="text" readonly>
+                    </div>
+                    <div class="tuesdayWrap">
+                        <p class="tuesdayText">Tue</p>
+                        <input id="tuesdayCalendar" class="tuesdayCalnedar" type="text" readonly>
+                    </div>
+                    <div class="wednesdayWrap">
+                        <p class="wednesdayText">Wed</p>
+                        <input id="wednesdayCalendar" class="wednesdayCalnedar" type="text" readonly>
+                    </div>
+                    <div class="thursdayWrap">
+                        <p class="thursdayText">Thu</p>
+                        <input id="thursdayCalendar" class="thursdayCalnedar" type="text" readonly>
+                    </div>
+                    <div class="fridayWrap">
+                        <p class="fridayText">Fri</p>
+                        <input id="fridayCalendar" class="fridayCalnedar" type="text" readonly>
+                    </div>
+                    <div class="saturdayWrap">
+                        <p class="saturdayText">Sat</p>
+                        <input id="saturdayCalendar" class="saturdayCalnedar" type="text" readonly>
+                    </div>
+                    <div class="sundayWrap">
+                        <p class="sundayText">Sun</p>
+                        <input id="sundayCalendar" class="sundayCalnedar" type="text" readonly>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="hiddenBoxer">
+            <div id="overlay"></div>
+
+            <div id="modal">
+                <h2>New Workout</h2>
+                <label for="workoutName">Name of Workout:</label>
+                <input type="text" id="workoutName" placeholder="Enter the name of the workout">
+                <br>
+                <label for="workoutDay">Which day:</label>
+                <select id="workoutDay">
+                    <option value="monday">Monday</option>
+                    <option value="tuesday">Tuesday</option>
+                    <option value="wednesday">Wednesday</option>
+                    <option value="thursday">Thursday</option>
+                    <option value="friday">Friday</option>
+                    <option value="saturday">Saturday</option>
+                    <option value="sunday">Sunday</option>
+                </select>
+                <br>
+                <label for="workoutTime">Time to Workout:</label>
+                <input type="text" id="workoutTime" placeholder="Enter the time to workout">
+                <br>
+                <label for="workoutPlace">Place to Workout:</label>
+                <input type="text" id="workoutPlace" placeholder="Enter the place to workout">
+                <br>
+                <label for="exerciseCount">How many exercises:</label>
+                <input type="number" id="exerciseCount" placeholder="Enter the number of exercises">
+                <br>
+                <label for="exerciseChoice">Which exercises:</label>
+                <select id="exerciseChoice">
+                    <option value="cardio">Cardio</option>
+                    <option value="strength">Strength Training</option>
+                    <option value="yoga">Yoga</option>
+                </select>
+                <br>
+                <label for="setCount">How many sets:</label>
+                <input type="number" id="setCount" placeholder="Enter the number of sets">
+                <br><br>
+                <div class="modalButtons">
+                    <button class="submitButton" onclick="submitWorkout()">Submit</button>
+                    <button class="closeButton" onclick="hideModal()">Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="hiddenBoxer2">
+            <div id="overlay2"></div>
+
+            <div id="modal2">
+                <div class="modalButtons2">
+                    <button class="closeButton2" onclick="hideModal()">Close</button>
+                </div>
+            </div>
+        </div>
+        <div class="hiddenBoxer3">
+            <div id="overlay3"></div>
+
+            <div id="modal3">
+                <h2>New Training</h2>
+                <div class="trainingInput">
+                    <label class="trainingLabel" for="addTraining">Add your training type:</label>
+                    <input type="text" id="addTraining" placeholder="Enter training type here">
+                </div>
+                <br><br>
+                <div class="modalButtons3">
+                    <button class="submitButton" onclick="submitWorkout2()">Submit</button>
+                    <button class="closeButton3" onclick="hideModal()">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/plan.js"></script>
+</body>
+</html>
+
+<!-- &Mejxo; &Berta; &MrMarcus; &Pkepy -->
