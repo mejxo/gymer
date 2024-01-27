@@ -2,5 +2,13 @@
 Gym planner
 
 
-/* This needs to be installen when wants to run npm start */
-npm i express.js body-parser knex pg nodemon
+- ** When running this for the first time, use the following command**
+```bash
+npm i
+```
+
+- to run the server use 
+```bash
+npm run start
+```
+
